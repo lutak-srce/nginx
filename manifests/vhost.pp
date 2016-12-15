@@ -48,7 +48,7 @@ define nginx::vhost (
   include nginx
 
   # set the server name correctly
-  if $servername == '' {
+  if $servername == undef {
     $srvname = $name
   } else {
     $srvname = $servername
