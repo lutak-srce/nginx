@@ -8,6 +8,7 @@ class nginx (
   $service            = $::nginx::params::service,
   $conf_dir           = $::nginx::params::conf_dir,
   $confd_dir          = $::nginx::params::confd_dir,
+  $template_conf      = 'nginx/nginx.conf.erb',
   $log_dir            = $::nginx::params::log_dir,
   $pid_file           = $::nginx::params::pid_file,
   $daemon_user        = $::nginx::params::daemon_user,
@@ -48,7 +49,7 @@ class nginx (
 
   # main config file
   file { "${conf_dir}/nginx.conf":
-    content => template('nginx/nginx.conf.erb'),
+    content => template($template_conf),
   }
 
   # logrotate
