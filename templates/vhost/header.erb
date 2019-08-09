@@ -15,8 +15,14 @@ server {
     # SSL certificates
     ssl_certificate        <%= @ssl_cert %>;
     ssl_certificate_key    <%= @ssl_key %>;
+<% if @ssl_verify_client -%>
+    ssl_verify_client <%= @ssl_verify_client %>;
+<% end -%>
 <% if @ssl_client_cert -%>
     ssl_client_certificate <%= @ssl_client_cert %>;
+<% end -%>
+<% if @ssl_crl -%>
+    ssl_crl <%= @ssl_crl %>;
 <% end -%>
 <% if @hsts != '' -%>
     add_header Strict-Transport-Security "<%= @hsts %>";
