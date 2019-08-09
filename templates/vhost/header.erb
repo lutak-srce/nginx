@@ -2,7 +2,11 @@
 # VirtualHost: <%= @name %>
 #
 server {
+<% if @srvname.kind_of?(Array) -%>
+    server_name <%= @srvname.join(' ') %>;
+<% else -%>
     server_name <%= @srvname %>;
+<% end -%>
     listen      <%= @listen %><% if @ssl == true %> ssl<% end %>;
     root        <%= @docroot %>;
     index       <%= @index.join(' ') %>;
