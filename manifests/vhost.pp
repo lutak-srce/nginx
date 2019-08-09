@@ -40,6 +40,7 @@ define nginx::vhost (
   $ssl_cert        = undef,
   $ssl_key         = undef,
   $ssl_client_cert = undef,
+  $hsts            = '',
   $template        = 'nginx/vhost/header.erb',
   $priority        = 'vhost',
   $log_dir         = '',
